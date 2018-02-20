@@ -43,7 +43,7 @@ class TextEditor extends JFrame{
 			
 			JToolBar tool = new JToolBar();
 							add(tool,BorderLayout.NORTH);
-//							tool.add(New);
+							tool.add(New);
 							tool.add(Open);
 							tool.add(Save);
 							tool.addSeparator();
