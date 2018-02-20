@@ -23,7 +23,7 @@ class TextEditor extends JFrame{
 			JMenu edit = new JMenu("Edit");
 			JMB.add(file); JMB.add(edit);
 			
-//			file.add(New);
+			file.add(New);
 			file.add(Open);
 			file.add(Save);
 			file.add(Quit);	
@@ -79,7 +79,7 @@ class TextEditor extends JFrame{
 				SaveAs.setEnabled(true);
 			}
 		};
-		
+			
 		private void saveFileAs() {
 				if(dialog.showSaveDialog(null)==JFileChooser.APPROVE_OPTION)
 						saveFile(dialog.getSelectedFile().getAbsolutePath());
@@ -120,6 +120,18 @@ class TextEditor extends JFrame{
 			catch (IOException e) {								
 			}
 		}
+
+		Action New = new AbstractAction("New", new ImageIcon("images/new.gif")) {									
+			public void actionPerformed(ActionEvent e) {
+				saveOld();
+				area.setText("");
+				currentFile = "Untitled";
+				setTitle(currentFile);
+				changed = false;
+				Save.setEnabled(false);
+				SaveAs.setEnabled(false);
+			}
+		}; 
 		
 		Action Open = new AbstractAction("Open", new ImageIcon("images/open.gif")) {						
 			public void actionPerformed(ActionEvent e) {
